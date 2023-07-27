@@ -3,12 +3,12 @@
 Multinodes implementation of bwamem2.\
 Tested on AMD EPYC 7763 64-Core Processor with 2 sockets per node.\
 So far only the avx2 binary is selected on these nodes.\
-The speed-up is almost x3 with the avx version.\
+The speed-up is almost x3 with the avx2 version.\
 \
-Not tested on EPY 9XXX yet.\
+Not tested on EPYC 9XXX yet.\
 See test_mpibwa2.sh for tests and arguments.\
 The option -f for fixmate doesn't work yet.\
-mpiBWA2 only work for fixed length and paired reads so far.\
+mpiBWA2 only work for fixed length and paired reads so far.
 
 
 
