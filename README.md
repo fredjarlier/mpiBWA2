@@ -1,13 +1,15 @@
 7-27-2023
 
-Multinode implementation of bwamem2.
-Almost 3 times faster than mpiBWA on multinode.
+Multinodes implementation of bwamem2.
 Tested on AMD EPYC 7763 64-Core Processor with 2 sockets per node.
 So far only the avx2 binary is selected but avx2 is almost 3 times faster than
-mpiBWA. Maybe it works on new EPY 9XXX I don't know.
+mpiBWA. 
 
+Not tested on EPY 9XXX yet.
 See test_mpibwa2.sh for tests and arguments.
 The option -f for fixmate doesn't work yet.
+mpiBWA2 only work for fixed length and paired reads so far.
+
 
 # mpiBWA2
 
