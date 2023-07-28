@@ -10,6 +10,10 @@ See test_mpibwa2.sh for tests and arguments.\
 The option -f for fixmate doesn't work yet.\
 mpiBWA2 only work for fixed length and paired reads so far.
 
+How to install:
+
+git clone --recursive https://github.com/fredjarlier/mpiBWA2.git
+
 Some results:
 
 Alignment of 558051664 reads paired 100x100 with hg19, AVX2 (auto-selected)
