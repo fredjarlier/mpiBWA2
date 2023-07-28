@@ -4,19 +4,21 @@ Multinodes implementation of bwamem2.\
 Tested on AMD EPYC 7763 64-Core Processor with 2 sockets per node.\
 So far only the avx2 binary is selected on these nodes.\
 The speed-up is almost x3 with the avx2 version.\
-\
-Not tested on EPYC 9XXX yet.\
-See test_mpibwa2.sh for tests and arguments.\
-The option -f for fixmate doesn't work yet.\
+100% reproducibility with bwamem2 in alignment (only the @PG header line is modified).\
 mpiBWA2 only work for fixed length and paired reads so far.
 
 How to install:
 
-git clone --recursive https://github.com/fredjarlier/mpiBWA2.git
+git clone --recursive https://github.com/fredjarlier/mpiBWA2.git \
+cd mpiBWA2 \
+import mpi librairies or if you have module: . sourceme_intelmpi.sh
+make
 
 The reference genome:
 
 mpiBWA2 take the same reference as bwa-mem2.
+
+See test_mpibwa2.sh for tests and arguments.
 
 Some results:
 
