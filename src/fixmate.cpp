@@ -178,8 +178,9 @@ int readParsing (char *sam_buff, readInfo *read, bwaidx_t *indix) {
             // These fields are ignored
             
             break;
-            case 0: //qname we already have it
-		        q = strchr(q, '\t') + 1;	
+            case 0: {//qname we already have it
+		        q = strchr(q, '\t') + 1;
+		    }	
                 break;
             case 1: // Flag part
 		        getTokenTab(&q, &tokenCar);
@@ -188,42 +189,47 @@ int readParsing (char *sam_buff, readInfo *read, bwaidx_t *indix) {
                 free(tokenCar);
                 break;
 
-            case 2: // RNAME part
+            case 2: {// RNAME part
 
 		        getTokenTab(&q, &tokenCar);
-                for ( j = 0; j < indix->bns->n_seqs; ++j) {
+                	for ( j = 0; j < indix->bns->n_seqs; ++j) {
                         if (strcmp(indix->bns->anns[j].name, tokenCar) == 0) {
                             read->tid = j;
                             break;
                         }
 			            else read->tid = -1;
-                }
-                free(tokenCar);
+                	}
+                	free(tokenCar);
+		    }
                 break;
 
-	    case 3: // The position chromosome wise
-		        getTokenTab(&q, &tokenCar);
-		        if (strcmp(tokenCar, "*") == 0) read->pos = -1;
+	    case 3:{ 
+		// The position chromosome wise
+		getTokenTab(&q, &tokenCar);
+		if (strcmp(tokenCar, "*") == 0) read->pos = -1;
                 else read->pos = atoll(tokenCar);
                 free(tokenCar);
+		   }
                 break;
 
-	    case 4: // The MAPQ
+	    case 4: {// The MAPQ
 		
 		        getTokenTab(&q, &tokenCar);
                 read->mapq = atoi(tokenCar);
                 free(tokenCar);
+		    }
                 break;
 
-	    case 5: // the CIGAR string
+	    case 5: {// the CIGAR string
 	            //q = strchr(q, '\t') + 1;
 		        getTokenTab(&q, &tokenCar);
                 read->cigar = strdup(tokenCar);
                 assert(read->cigar);
 		        free(tokenCar);
+		    }
 		        break;
 
-   	    case 6: // the mate chromosom
+   	    case 6: {// the mate chromosom
 
 		        getTokenTab(&q, &tokenCar);
 
@@ -241,32 +247,35 @@ int readParsing (char *sam_buff, readInfo *read, bwaidx_t *indix) {
                     }
                 }
                 free(tokenCar);
+		    }
                 break;
 
-	   case 7: // here we have the PNEXT, the position of the next read	
+	   case 7: {// here we have the PNEXT, the position of the next read	
 		        getTokenTab(&q, &tokenCar);
 		        if (strcmp(tokenCar, "*") == 0) read->mpos = -1;
                 else read->mpos = atol(tokenCar);
                 free(tokenCar);
+		   }
                 break;
 
-	   case 8: // the Mate MAPQ 		
+	   case 8: {// the Mate MAPQ 		
 		        getTokenTab(&q, &tokenCar);
                 read->dist2mate = atol(tokenCar);
                 free(tokenCar);
+		   }
                 break;
 
-	   case 9: // the segment SEQ
+	   case 9: {// the segment SEQ
                 //q = strchr(q, '\t') + 1;
                 //break; 
 		        getTokenTab(&q, &tokenCar);
 		        read->seq = strdup(tokenCar);
 		        free(tokenCar); 
-	
+		}
                 break;
 
-           case 10:
-
+           case 10: {
+		
                 getTokenTab(&q, &tokenCar);
 		read->qual=strndup(tokenCar, strlen(read->seq));	
 		
@@ -280,9 +289,10 @@ int readParsing (char *sam_buff, readInfo *read, bwaidx_t *indix) {
 
                 q = strchr(q, '\t') + 1;	
                 free(tokenCar);
+		    }
                 break;
 
-	   case 11:
+	   case 11:{
 		/*  after quality string we have the 
  		 *  auxillary tags we copy it in the 
  		 *  read->aux
@@ -295,6 +305,7 @@ int readParsing (char *sam_buff, readInfo *read, bwaidx_t *indix) {
 		        //*end='\n';		
                 res = asprintf(&(read->aux), start, end - start);
                 assert(res > 0);
+		   }
                 break;
 
 	   default:
