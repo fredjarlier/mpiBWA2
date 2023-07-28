@@ -14,13 +14,13 @@ Some results:
 
 Alignment of 558051664 reads paired 100x100 with hg19, AVX2 (auto-selected)
 
-1 node with 128 threads
+1 node with 128 threads\
 $BWA2 mem -t 128 -Y -K 100000000 $REF $FASTQ1 $FASTQ2 > $SAM => 42 mn
 
-1 node 8 mpi jobs with 16 threads per job
+1 node 8 mpi jobs with 16 threads per job\
 $MPIBWA2 mem -t 16 -Y -K 100000000 -o $OUTPUT $REF $FASTQ1 $FASTQ2 => 27 mn
 
-2 node 16 mpi jobs with 16 threads per job
+2 node 16 mpi jobs with 16 threads per job\
 $MPIBWA2 mem -t 16 -Y -K 100000000 -o $OUTPUT $REF $FASTQ1 $FASTQ2 => 14 mn
 
 
