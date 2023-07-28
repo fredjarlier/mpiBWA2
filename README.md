@@ -14,6 +14,10 @@ How to install:
 
 git clone --recursive https://github.com/fredjarlier/mpiBWA2.git
 
+The reference genome:
+
+mpiBWA2 take the same reference as bwa-mem2.
+
 Some results:
 
 Alignment of 558051664 reads paired 100x100 with hg19, AVX2 (auto-selected)
