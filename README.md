@@ -23,7 +23,7 @@ See test_mpibwa2.sh for tests and arguments.
 
 Some results:
 
-Alignment of 558051664 reads paired 100x100 with hg19, AVX2 (auto-selected)
+Align 558051664 reads paired 100x100 with hg19, AVX2 (auto-selected), intelmpi
 
 1 node with 128 threads\
 $BWA2 mem -t 128 -Y -K 100000000 $REF $FASTQ1 $FASTQ2 > $SAM => 42 mn
