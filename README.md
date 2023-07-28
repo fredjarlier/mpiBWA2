@@ -11,7 +11,8 @@ How to install:
 
 git clone --recursive https://github.com/fredjarlier/mpiBWA2.git \
 cd mpiBWA2 \
-import mpi librairies or if you have module: . sourceme_intelmpi.sh
+import mpi librairies or if you have module: \
+. sourceme_intelmpi.sh\
 make
 
 The reference genome:
