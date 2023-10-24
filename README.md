@@ -1,3 +1,20 @@
+10-19-2023
+
+- Improve IO preallocation buffer.
+- fix a memory leaks
+
+tests: 
+HG002 on CHM13
+1 node 128 cores AMD EPYC 7763 => 5h => 3,13 kwh
+HG002 on HG19
+1 node 128 cores  AMD EPYC 7763 => 3h15 = 1,99 kwh
+
+refence:
+chm13.0123, chm13.amb, chm13.ann, chm13.bwt.2bit.64, chm13.fasta, chm13.pac
+
+
+
+
 7-27-2023
 
 Multinodes implementation of bwamem2.\
