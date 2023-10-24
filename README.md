@@ -3,11 +3,11 @@
 - Improve IO preallocation buffer.
 - fix a memory leaks
 
-tests: \ 
+tests:  
 HG002 on CHM13 \
 1 node 128 cores AMD EPYC 7763 => 5h => 3,13 kwh \
 HG002 on HG19 \
-1 node 128 cores  AMD EPYC 7763 => 3h15 = 1,99 kwh \
+1 node 128 cores  AMD EPYC 7763 => 3h15 = 1,99 kwh 
 
 
 refence: \
